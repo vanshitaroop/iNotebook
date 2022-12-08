@@ -1,6 +1,10 @@
 const mongoose = require("mongoose");
-
+const { Schema } = mongoose;
 const NotesSchema = new Schema({
+    user:{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"user"
+    },
     title:{
         type:String,
         require:true
@@ -8,16 +12,18 @@ const NotesSchema = new Schema({
     description:{
         type:String,
         require:true,
-        unique:true
+        
     },
     tag:{
         type:String,
         default:"General"
     },
     date:{
-        type:date,
+        type:Date,
         default:Date.now 
     }
   });
 
-  module.expots = mongoose.model("user",NotesSchema)
+  const Notes = mongoose.model("notes",NotesSchema);
+  Notes.createIndexes();
+  module.exports = Notes;
