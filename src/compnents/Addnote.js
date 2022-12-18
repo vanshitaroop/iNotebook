@@ -43,6 +43,18 @@ export const Addnote = () => {
               name="description"
             />
           </div>
+          <div className="mb-3">
+            <label htmlFor="exampleInputdescPassword1" className="form-label">
+              tag
+            </label>
+            <input
+            name="tag"
+              type="text"
+              className="form-control"
+              id="tag"
+              onChange={onchange}
+            />
+          </div>
           <button
             type="submit"
             className="btn btn-primary"
