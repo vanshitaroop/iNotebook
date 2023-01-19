@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import NoteContext from "../context/notes/noteContext";
 import { useState } from "react";
-export const Addnote = () => {
+export const Addnote = (props) => {
   const context = useContext(NoteContext);
   const { addNote } = context;
   const [note, setNote] = useState({title:"",description: "",tag:""});
@@ -9,6 +9,8 @@ export const Addnote = () => {
     e.preventDefault();
     const tag="default"
     addNote(note.title,note.description,tag)
+    setNote({title:"",description: "",tag:""})
+    props.showAlert("Added successfully","success");
   };
   const onchange=(e)=>{
     setNote({...note,[e.target.name]:e.target.value})
@@ -29,6 +31,7 @@ export const Addnote = () => {
               id="title"
               name="title"
               onChange={onchange}
+              value={note.title}
             />
           </div>
           <div className="mb-3">
@@ -41,6 +44,7 @@ export const Addnote = () => {
               id="description"
               onChange={onchange}
               name="description"
+              value={note.description}
             />
           </div>
           <div className="mb-3">
@@ -53,12 +57,14 @@ export const Addnote = () => {
               className="form-control"
               id="tag"
               onChange={onchange}
+              value={note.tag}
             />
           </div>
           <button
             type="submit"
             className="btn btn-primary"
             onClick={handleclick}
+            disabled={note.description.length<=5 || note.title.length<=5}
           >
             Add note
           </button>
