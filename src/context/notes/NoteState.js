@@ -7,7 +7,7 @@ const NoteState = (props) => {
   const [notes, setnotes] = useState(notesInitial);
   //get a Note
   const getNote=async()=>{
-    const response = await fetch("https://i-notebook-two.vercel.app/api/notes/fetchallnotes", {
+    const response = await fetch("http://localhost:5000/api/notes/fetchallnotes", {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ const NoteState = (props) => {
 
   //Add a Note
   const addNote=async(title,description,tag)=>{
-    const response = await fetch('https://i-notebook-two.vercel.app/api/notes/addnote', {
+    const response = await fetch('http://localhost:5000/api/notes/addnote', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ const NoteState = (props) => {
 
   //Delete a note
   const delNote=async(id)=>{
-    const response = await fetch(`https://i-notebook-two.vercel.app/api/notes/deletenote/${id}`, {
+    const response = await fetch(`http://localhost:5000/api/notes/deletenote/${id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
@@ -54,7 +54,7 @@ const NoteState = (props) => {
   //Update a note
   const editeNote= async(id,title,description,tag)=>{
     //API call
-    const response = await fetch(`https://i-notebook-two.vercel.app/api/notes//updatenote/${id}`, {
+    const response = await fetch(`http://localhost:5000/api/notes//updatenote/${id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
