@@ -15,7 +15,7 @@ export const Signup = (props) => {
     const { name, email, password } = credantials;
 
     const response = await fetch("https://i-notebook-two.vercel.app/api/auth/createuser", {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
       },

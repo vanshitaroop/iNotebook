@@ -8,7 +8,7 @@ var fetchuser = require('../middleware/fetchuser');
 //jwt secreat
 const JWT_SECREAT = "Shukrana@123";
 //ROUTE1 - Create a User using: POST "/api/auth/createuser". No login required
-router.post('/createuser', [
+router.get('/createuser', [
   body('name', 'Enter a valid name').isLength({ min: 3 }),
   body('email', 'Enter a valid email').isEmail(),
   body('password', 'Password must be atleast 5 characters').isLength({ min: 5 }),
@@ -50,7 +50,7 @@ router.post('/createuser', [
 })
 
 //ROUTE 2 - Authenticate a User using: POST "/api/auth/login". No login required
-router.post('/login', [
+router.get('/login', [
   body('email', 'Enter a valid email').isEmail(),
   body('password', 'Password cannot be blank').exists(),
 ], async (req, res) => {
@@ -85,7 +85,7 @@ router.post('/login', [
   }
 })
 //ROUTE 3 -Get logged user detailsusing: using: POST "/api/auth/getuser".login required
-router.post('/getuser', fetchuser, async (req, res) => {
+router.get('/getuser', fetchuser, async (req, res) => {
   try {
     var  userId = req.user.id;
     const user = await User.findById(userId).select("-password")
