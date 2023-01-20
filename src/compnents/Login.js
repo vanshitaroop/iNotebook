@@ -8,7 +8,7 @@ export const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const response = await fetch("https://i-notebook-two.vercel.app/api/auth/login", {
-      method: "GET",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
