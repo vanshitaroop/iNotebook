@@ -129,7 +129,7 @@ export const Notes = (props) => {
               >
                 Close
               </button>
-              <button type="button" className="btn btn-primary" onClick={handleclick}  disabled={note.edescription.length<=5 || note.etitle.length<=5}>
+              <button type="button" className="btn btn-primary" onClick={handleclick}  >
                 Update Note
               </button>
             </div>

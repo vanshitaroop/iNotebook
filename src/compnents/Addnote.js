@@ -7,8 +7,8 @@ export const Addnote = (props) => {
   const [note, setNote] = useState({title:"",description: "",tag:""});
   const handleclick = (e) => {
     e.preventDefault();
-    const tag="default"
-    addNote(note.title,note.description,tag)
+    // const tag="default"
+    addNote(note.title,note.description,note.tag)
     setNote({title:"",description: "",tag:""})
     props.showAlert("Added successfully","success");
   };
@@ -64,7 +64,7 @@ export const Addnote = (props) => {
             type="submit"
             className="btn btn-primary"
             onClick={handleclick}
-            disabled={note.description.length<=5 || note.title.length<=5}
+            disabled={note.description.length<=2 || note.title.length<=2}
           >
             Add note
           </button>

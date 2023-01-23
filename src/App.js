@@ -8,7 +8,7 @@ import { Route, Routes } from "react-router-dom";
 import { Login } from "./compnents/Login";
 import { useState } from "react";
 import { Signup } from "./compnents/Signup";
-
+import {Footer} from "./compnents/Footer.js"
 function App() {
   const  [alert, setAlert] = useState(null)
   const showAlert = (message,type)=>{
@@ -34,6 +34,7 @@ function App() {
           <Route exact path="/signup" element={<Signup showAlert={showAlert} />} />
         </Routes>
         </div>
+        <Footer/>
       </NoteState>
        
       
